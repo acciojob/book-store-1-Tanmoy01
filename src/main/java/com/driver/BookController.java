@@ -61,7 +61,7 @@ public class BookController {
                 if(book.getId() == Integer.parseInt(id))
                     return new ResponseEntity<>(book, HttpStatus.ACCEPTED);
             }
-        return null;
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
     // get request /get-all-books
@@ -107,7 +107,7 @@ public class BookController {
             if(book.getId() == Integer.parseInt(id))
                 return new ResponseEntity<>("deleted", HttpStatus.CREATED);
         }
-        return null;
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("delete-all-books")
