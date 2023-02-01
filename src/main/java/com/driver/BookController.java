@@ -75,7 +75,7 @@ public class BookController {
     // pass author name as request param
     // getBooksByAuthor()
     @GetMapping("/get-books-by-author")
-    public ResponseEntity<List<Book>> getBookByAuthor(@RequestParam("author") String author){
+    public ResponseEntity<List<Book>> getBooksByAuthor(@RequestParam("author") String author){
         List<Book> authorBook =new ArrayList<>();
         for(Book book : bookList){
             if(book.getAuthor().equals(author))
@@ -102,7 +102,7 @@ public class BookController {
     // delete request /delete-all-books
     // deleteAllBooks()
     @DeleteMapping("/delete-book-by-id/{id}")
-    public ResponseEntity<String> deleteAllBook(@PathVariable ("id") String id){
+    public ResponseEntity<String> deleteAllBooks(@PathVariable ("id") String id){
         for(Book book : bookList){
             if(book.getId() == Integer.parseInt(id))
                 return new ResponseEntity<>("deleted", HttpStatus.CREATED);
